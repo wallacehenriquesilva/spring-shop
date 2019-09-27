@@ -1,5 +1,6 @@
 package br.wallace.curso.spring.curso.spring.data.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -25,6 +26,7 @@ public class CategoryEntity implements Serializable {
     private String name;
 
 
+    @JsonManagedReference
     //Faz referência ao mapeamento criado na classe ProductEntity
     @ManyToMany(mappedBy = "categories")
     private List<ProductEntity> products = new ArrayList<>();

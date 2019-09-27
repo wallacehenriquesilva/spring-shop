@@ -1,5 +1,6 @@
 package br.wallace.curso.spring.curso.spring.data.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,6 +27,7 @@ public class ProductEntity {
 
     //Tabela que fara o muito pra muitos na base de dados
     //Mapeamento Muitos pra muitos
+    @JsonBackReference
     @ManyToMany
     @JoinTable(name = "product_category",
             joinColumns = @JoinColumn(name = "product_id"),
